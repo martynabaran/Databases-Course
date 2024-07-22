@@ -1,0 +1,36 @@
+First view:
+
+{"total_rows":7,"offset":0,"rows":[
+{"id":"0c0e00549e799195d8b35eb63d2e807b","key":"Auchan","value":{"_id":"0c0e00549e799195d8b35eb63d2e807b","_rev":"1-f6fae3264f55cd4fa49c073edd392336","product":"tomato","price":4,"store":"Auchan","when":"weekly"},"doc":{"_id":"0c0e00549e799195d8b35eb63d2e807b","_rev":"1-f6fae3264f55cd4fa49c073edd392336","product":"tomato","price":4,"store":"Auchan","when":"weekly"}},
+{"id":"0c0e00549e799195d8b35eb63d2e9825","key":"Auchan","value":{"_id":"0c0e00549e799195d8b35eb63d2e9825","_rev":"1-323d839c7f5113392ea7a5ac111600e9","product":"moon rocket","price":119,"store":"Auchan","description":"Black and White Falcon Heavy"},"doc":{"_id":"0c0e00549e799195d8b35eb63d2e9825","_rev":"1-323d839c7f5113392ea7a5ac111600e9","product":"moon rocket","price":119,"store":"Auchan","description":"Black and White Falcon Heavy"}},
+{"id":"0c0e00549e799195d8b35eb63d2e19c4","key":"Biedronka","value":{"_id":"0c0e00549e799195d8b35eb63d2e19c4","_rev":"1-b504821c9d37abebf146c170745383ed","product":"bread","price":2.2,"store":"Biedronka","when":"weekly"},"doc":{"_id":"0c0e00549e799195d8b35eb63d2e19c4","_rev":"1-b504821c9d37abebf146c170745383ed","product":"bread","price":2.2,"store":"Biedronka","when":"weekly"}},
+{"id":"0c0e00549e799195d8b35eb63d2e3f8a","key":"Biedronka","value":{"_id":"0c0e00549e799195d8b35eb63d2e3f8a","_rev":"1-5417c76f407480a97dc8fa79080c77fb","product":"tomato","price":2,"store":"Biedronka","when":"weekly"},"doc":{"_id":"0c0e00549e799195d8b35eb63d2e3f8a","_rev":"1-5417c76f407480a97dc8fa79080c77fb","product":"tomato","price":2,"store":"Biedronka","when":"weekly"}},
+{"id":"0c0e00549e799195d8b35eb63d2f9e40","key":"Biedronka","value":{"_id":"0c0e00549e799195d8b35eb63d2f9e40","_rev":"1-f3e9f69b229e12629d5299dc1a2bc1d0","product":"lollipop","price":1.4,"store":"Biedronka"},"doc":{"_id":"0c0e00549e799195d8b35eb63d2f9e40","_rev":"1-f3e9f69b229e12629d5299dc1a2bc1d0","product":"lollipop","price":1.4,"store":"Biedronka"}},
+{"id":"0c0e00549e799195d8b35eb63d2e5816","key":"Lidl","value":{"_id":"0c0e00549e799195d8b35eb63d2e5816","_rev":"1-08b82765ba95f2ac80255ffd14fa28a9","product":"tomato","price":3,"store":"Lidl","when":"weekly"},"doc":{"_id":"0c0e00549e799195d8b35eb63d2e5816","_rev":"1-08b82765ba95f2ac80255ffd14fa28a9","product":"tomato","price":3,"store":"Lidl","when":"weekly"}},
+{"id":"0c0e00549e799195d8b35eb63d2f6ce1","key":"Lidl","value":{"_id":"0c0e00549e799195d8b35eb63d2f6ce1","_rev":"1-52de7dcb64edbed23a98b741061f485a","product":"lollipop","price":1.2,"store":"Lidl"},"doc":{"_id":"0c0e00549e799195d8b35eb63d2f6ce1","_rev":"1-52de7dcb64edbed23a98b741061f485a","product":"lollipop","price":1.2,"store":"Lidl"}}
+]}
+
+
+Second View:
+{"rows":[
+{"key":"Auchan","value":2},
+{"key":"Biedronka","value":3},
+{"key":"Lidl","value":2}
+]}
+
+Third view:
+{"rows":[
+{"key":"bread","value":{"sum":2.2,"count":1,"avg":2.2}},
+{"key":"lollipop","value":{"sum":2.5999999999999996,"count":2,"avg":1.2999999999999998}},
+{"key":"moon rocket","value":{"sum":119,"count":1,"avg":119}},
+{"key":"tomato","value":{"sum":9,"count":3,"avg":3}}
+]}
+
+
+URL 1:
+curl -u admin:ztb2020 -X GET "http://nosql.kis.agh.edu.pl:5984/martynabar/_design/shoppingList/_view/view1?key=\"Lidl\""
+
+
+
+URL 2:
+curl -u admin:ztb2020 -X GET "http://nosql.kis.agh.edu.pl:5984/martynabar/_design/shoppingList/_view/view2?key=\"Biedronka\""
