@@ -1,0 +1,189 @@
+// Create nodes for buildings
+CREATE (s1:Building {name: 'S-1'})
+CREATE (s2:Building {name: 'S-2'})
+CREATE (d1:Building {name: 'D-1'})
+CREATE (u2:Building {name: 'U-2'})
+CREATE (a4:Building {name: 'A-4'})
+CREATE (a3:Building {name: 'A-3'})
+CREATE (c4:Building {name: 'C-4'})
+CREATE (c3:Building {name: 'C-3'})
+CREATE (c2:Building {name: 'C-2'})
+CREATE (u1:Building {name: 'U-1'})
+CREATE (ha2:Building {name: 'H-A2'})
+CREATE (ha1:Building {name: 'H-A1'})
+CREATE (a2:Building {name: 'A-2'})
+CREATE (a1:Building {name: 'A-1'})
+CREATE (c1:Building {name: 'C-1'})
+CREATE (a0:Building {name: 'A-0'})
+CREATE (b1:Building {name: 'B-1'})
+CREATE (b2:Building {name: 'B-2'})
+CREATE (b3:Building {name: 'B-3'})
+CREATE (b4:Building {name: 'B-4'})
+CREATE (hbb3b4:Building {name: 'H-B3B4'})
+CREATE (hbb1b2:Building {name: 'H-B1B2'})
+
+// Create labels for buildings based on their functions
+SET s1:Service
+SET s2:Service
+SET d1:Research:Teaching
+SET u2:Research:Teaching
+SET a4:Teaching:Research
+SET a3:Teaching:Research
+SET c4:Teaching:Research
+SET c3:Teaching:Research
+SET c2:Teaching:Research
+SET u1:Research
+SET ha2:Teaching:Research
+SET ha1:Teaching:Research
+SET a2:Teaching:Research
+SET a1:Teaching:Research
+SET c1:Teaching:Research
+SET a0:Teaching:Research
+SET b1:Teaching:Research
+SET b2:Teaching:Research
+SET b3:Teaching:Research
+SET b4:Teaching:Research
+SET hbb3b4:Teaching:Research
+SET hbb1b2:Teaching:Research
+
+//setting labels to faculty buildings
+SET a4:HQ
+SET c4:HQ
+SET a2:HQ
+SET a1:HQ
+SET b1:HQ
+SET b2:HQ
+
+//cretaing connections
+CREATE (c3)-[:CONNECTED_TO {floor: 0}]->(c2),
+       (c3)-[:CONNECTED_TO {floor: 1}]->(c2),
+       (c3)-[:CONNECTED_TO {floor: 2}]->(c2),
+       (c3)-[:CONNECTED_TO {floor: 3}]->(c2),
+       (c3)-[:CONNECTED_TO {floor: 4}]->(c2),
+       (c2)-[:CONNECTED_TO {floor: 0}]->(c1),
+       (c2)-[:CONNECTED_TO {floor: 1}]->(c1),
+       (c2)-[:CONNECTED_TO {floor: 2}]->(c1),
+       (c2)-[:CONNECTED_TO {floor: 3}]->(c1),
+       (c2)-[:CONNECTED_TO {floor: 4}]->(c1),
+       (c2)-[:CONNECTED_TO {floor: 0}]->(c3),
+       (c2)-[:CONNECTED_TO {floor: 1}]->(c3),
+       (c2)-[:CONNECTED_TO {floor: 2}]->(c3),
+       (c2)-[:CONNECTED_TO {floor: 3}]->(c3),
+       (c2)-[:CONNECTED_TO {floor: 4}]->(c3),
+       (c1)-[:CONNECTED_TO {floor: 0}]->(c2),
+       (c1)-[:CONNECTED_TO {floor: 1}]->(c2),
+       (c1)-[:CONNECTED_TO {floor: 2}]->(c2),
+       (c1)-[:CONNECTED_TO {floor: 3}]->(c2),
+       (c1)-[:CONNECTED_TO {floor: 4}]->(c2)
+
+
+CREATE (b1)-[:CONNECTED_TO {floor: -1}]->(b2),
+       (b1)-[:CONNECTED_TO {floor: 0}]->(hb1b2),
+       (b2)-[:CONNECTED_TO {floor: 0}]->(hb1b2),
+       (b1)-[:CONNECTED_TO {floor: 1}]->(hb1b2),
+       (b2)-[:CONNECTED_TO {floor: 1}]->(hb1b2),
+       (hb1b2)-[:CONNECTED_TO {floor: -1}]->(b1),
+       (hb1b2)-[:CONNECTED_TO {floor: 0}]->(b1),
+       (hb1b2)-[:CONNECTED_TO {floor: 0}]->(b2),
+       (hb1b2)-[:CONNECTED_TO {floor: 1}]->(b1),
+       (hb1b2)-[:CONNECTED_TO {floor: 1}]->(b2)
+
+
+CREATE (b2)-[:CONNECTED_TO {floor: -1}]->(b3),
+       (b3)-[:CONNECTED_TO {floor: -1}]->(b2)
+
+CREATE (b3)-[:CONNECTED_TO {floor: -1}]->(b4),
+       (b3)-[:CONNECTED_TO {floor: 0}]->(hb3b4),
+       (b4)-[:CONNECTED_TO {floor: 0}]->(hb3b4),
+       (b3)-[:CONNECTED_TO {floor: 1}]->(hb3b4),
+       (b4)-[:CONNECTED_TO {floor: 1}]->(hb3b4),
+       (hb3b4)-[:CONNECTED_TO {floor: -1}]->(b3),
+       (hb3b4)-[:CONNECTED_TO {floor: 0}]->(b3),
+       (hb3b4)-[:CONNECTED_TO {floor: 0}]->(b4),
+       (hb3b4)-[:CONNECTED_TO {floor: 1}]->(b3),
+       (hb3b4)-[:CONNECTED_TO {floor: 1}]->(b4)
+
+CREATE (d1)-[:CONNECTED_TO {floor: 0}]->(u2),
+       (d1)-[:CONNECTED_TO {floor: 1}]->(u2),
+       (d1)-[:CONNECTED_TO {floor: 0}]->(a4),
+       (u2)-[:CONNECTED_TO {floor: 0}]->(a3),
+       (a4)-[:CONNECTED_TO {floor: 0}]->(c4),
+       (ha1)-[:CONNECTED_TO {floor: 0}]->(ha2),
+       (ha1)-[:CONNECTED_TO {floor: 1}]->(ha2),
+       (ha1)-[:CONNECTED_TO {floor: 2}]->(ha2),
+       (ha1)-[:CONNECTED_TO {floor: 0}]->(a1),
+       (ha1)-[:CONNECTED_TO {floor: 1}]->(a1),
+       (ha1)-[:CONNECTED_TO {floor: 2}]->(a1),
+       (ha2)-[:CONNECTED_TO {floor: 0}]->(a2),
+       (ha2)-[:CONNECTED_TO {floor: 1}]->(a2),
+       (ha2)-[:CONNECTED_TO {floor: 2}]->(a2),
+       (a1)-[:CONNECTED_TO {floor: 0}]->(a2),
+       (a1)-[:CONNECTED_TO {floor: 1}]->(a2),
+       (a1)-[:CONNECTED_TO {floor: 1}]->(c1),
+       (c1)-[:CONNECTED_TO {floor: 1}]->(a1)
+       (a0)-[:CONNECTED_TO {floor: 1}]->(a1),
+       (a1)-[:CONNECTED_TO {floor: 1}]->(a0)
+
+//Creating classroms
+CREATE (classroom1:Classroom {number: "315"})-[:IN]->(c2)
+CREATE (classroom2:Classroom {number: "208"})-[:IN]->(c2)
+CREATE (classroom3:Classroom {number: "429"})-[:IN]->(c2)
+CREATE (classroom4:Classroom {number: "216"})-[:IN]->(c2)
+CREATE (classroom5:Classroom {number: "221"})-[:IN]->(c2)
+CREATE (classroom6:Classroom {number: "224"})-[:IN]->(c2);
+
+
+//Creating entrances
+
+MATCH (b:Building)
+WITH collect(b) AS buildings  
+
+
+UNWIND buildings AS building
+CREATE (:Entrance {name: 'Entrance_' + building.name})
+WITH building
+MATCH (e:Entrance {name: 'Entrance_' + building.name})
+MATCH (b:Building {name: building.name})
+CREATE (e)-[:ENTRANCE_TO]->(b);
+
+MATCH (e1:ENTRANCE), (e2:ENTRANCE)
+WHERE e1 <> e2
+CREATE (e1)-[:CONNECTED_WITH_FOOTPATH]->(e2);
+
+Exercise 2
+QUERY1:
+
+MATCH (b:Building)
+WHERE NOT (b)-[:CONNECTED_TO]-() AND NOT (b)<-[:CONNECTED_TO]-()
+RETURN b AS Building;
+
+
+QUERY2:
+
+MATCH (s:Service)
+RETURN count(s) AS ServiceFacilitiesCount;
+
+QUERY3:
+MATCH (a1:Builidng {name:"A-1"})-[c:CONNECTED_TO]->(b1:Building)
+Return b1.name, c.floor;
+
+QUERY4:
+MATCH (start:Building {name: 'U-2'}),
+      (end:Building {name: 'B-2'}),
+      path = (start)-[:CONNECTED_TO*]-(end)
+RETURN path;
+
+QUERY5:
+MATCH (start:Building {name: 'C-3'}), (end:Building {name: 'A-0'})
+MATCH path = shortestPath((start)-[:CONNECTED_TO*]-(end))
+RETURN length(path) - 1 AS buildingsCrossed;
+
+
+query6:
+
+MATCH (b1:Building)-[:CONNECTED_TO]->(b2:Building)
+WITH b1, count(DISTINCT b2) AS numConnectedBuildings
+WHERE numConnectedBuildings >= 3
+RETURN b1.name AS Building;
+
+
