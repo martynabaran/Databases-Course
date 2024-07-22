@@ -1,0 +1,19 @@
+1. Enter data
+There is a map of the AGH Campus. Create a graph using Cypher and load it into your Neo4J instance. The graph is to represent the following features:
+
+- buildings: S-1, S-2, D-1, U-2, A-4, A-3, C-4, C-3, C-2, U-1, H-A2, H-A1, A-2, A-1, C-1,A-0, B-1, B-2, B-3, B-4, H-B3B4, H-B1B2; use nodes and property "name",
+- building functions: service facilities, research and teaching facilities; use labels: "SERVICE", "RESEARCH", "TEACHING",
+- buildings' adjacency: e.g. C-3 is adjacent to C-2 and there is a foot path connecting them on each floor; mind that not all floors are connected e.g.  C-1 and A-1 is connected via 1st floor only, if you are not sure which buildings are connected at which floors make it up :); use and edge with property "floor" (value of 0 represents a ground floor),
+- faculty head quarter locations (labeled with numbers on the map); each faculty headquarter should be represented as a node with "HQ" label,
+- classrooms you have had classes in; their numbers and relationships with the buildings; represent each of them as a node with "CLASSROOM" label,
+- building entrances, each entrance as a separate node labelled with "ENTRANCE"; all entrances are connected with each other by footpaths.
+
+2. Analytics
+Run the following queries:
+
+  - are there any buildings that are not connected directly (not through an entrance) to other buildings,
+  - how many service facilities there are,
+  - what buildings A-1 is connected with (is adjacent to) and at which floors,
+  - how to get from the Candidates Application Centre to the Faculty of Mechanical Engineering and Robotics without leaving the buildings (not going through an entrance),
+  - what is a shortest path (minimal number of buildings to go through) from the C-3 ground floor to the A-0 entrance,
+  - what are the buildings from which you can walk to other three buildings without going outside (adjacent buildings)?
