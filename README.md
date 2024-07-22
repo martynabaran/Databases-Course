@@ -6,12 +6,12 @@ Welcome to the repository containing my projects for the Databases 2 course. Thi
 The Databases 2 course offers an in-depth exploration of different database technologies and their applications. Students learn about traditional relational databases as well as specialized databases for spatial data, graph data, and document-oriented data. The course also covers data warehousing, indexing techniques, and working with lightweight databases like SQLite. Through practical assignments and projects, students gain hands-on experience with diverse database systems and learn to leverage their unique capabilities to solve complex data management problems.
 
 ## Table of Contents
-Project 1: Indexing Techniques
-Project 2: Spatial Databases
-Project 3: Graph Databases
-Project 4: Document-oriented Databases with CouchDB
-Project 5: Data Warehousing
-Project 6: Working with SQLite
+1. [Indexing Techniques](https://github.com/martynabaran/Databases-Course/tree/main/Lab1%3AIndexing)
+2. [Spatial Databases](https://github.com/martynabaran/Databases-Course/tree/main/Lab%3AGIS)
+3. [Graph Databases](https://github.com/martynabaran/Databases-Course/tree/main/Lab%3A%20Graph%20Databases)
+4. [Document-oriented Databases with CouchDB](https://github.com/martynabaran/Databases-Course/tree/main/Lab%3ACouchDB)
+5. [Data Warehousing](https://github.com/martynabaran/Databases-Course/tree/main/Lab%3AData%20Warehouse)
+6. [Working with SQLite](https://github.com/martynabaran/Databases-Course/tree/main/Lab%3ASQLite)
 
 ## Projects
 Project 1: Indexing Techniques
